@@ -7,8 +7,10 @@ export default function Home() {
   const [msg, setMsg] = useState("")
 
   const doClick = async () => {
+    // increase current count
     const newCnt = count + 1;
 
+    // send request to server
     const respData = await fetch('/api/fizzbuzz', {
       method: 'POST',
       headers: {
@@ -20,6 +22,7 @@ export default function Home() {
     })
     const respResult = await respData.json()
 
+    // update states
     setCount(newCnt)
     setMsg(respResult.message)
   }

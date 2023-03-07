@@ -14,11 +14,10 @@ export default async function handler(
     const { count } = req.body
 
     try {
+        // send request to /fizzbuzz endpoint
         const countRequest = await axios.post(
             `${process.env.NEXT_PUBLIC_API_BASE}/fizzbuzz`,
-            {
-                count
-            },
+            { count },
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,10 +25,15 @@ export default async function handler(
             }
         )
         const countResp = countRequest.data;
-    
-        return res.status(200).json({ status: countResp.status, message: countResp.message })
+
+        // return with returned value
+        return res.status(200).json({
+            status: countResp.status,
+            message: countResp.message
+        })
     } catch (err) {
+        // console the error
         console.log(`err here: ${err}`)
-        return res.status(200).json({ message: "Unexpected error", status: 500 })
+        return res.json({ message: "Unexpected error", status: 500 })
     }
 }
