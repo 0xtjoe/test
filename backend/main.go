@@ -38,9 +38,9 @@ func setupRouter() *gin.Engine {
 		if reqBody.Count % 15 == 0 {
 			returnMsg = "FizzBuzz"
 		} else if reqBody.Count % 5 == 0 {
-			returnMsg = "FizzBuzz"
+			returnMsg = "Buzz"
 		} else if reqBody.Count % 3 == 0 {
-			returnMsg = "FizzBuzz"
+			returnMsg = "Fizz"
 		}
 
 		c.JSON(200, gin.H {
