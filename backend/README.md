@@ -1,6 +1,6 @@
 # Golang backend for test task
 
-### I have used Gin framework for the backend server
+### I have used [Gin](https://github.com/gin-gonic/gin) framework for the backend server
 
 You can run the backend by running
 ```bash
